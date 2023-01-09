@@ -7,6 +7,8 @@
 
 using namespace std;
 
+
+// Structure
 typedef struct Book
 {
     string title;
@@ -14,7 +16,22 @@ typedef struct Book
     int price;
 } Book;
 
+void changePrice(Book * book, int newPrice)
+{
+    book->price = newPrice;
+}
 
+
+// Union
+typedef union ShareData
+{
+    unsigned char a;
+    unsigned short b;
+    unsigned int c;
+} ShareData;
+
+
+// Enumerated type Enum
 
 
 
@@ -47,6 +64,7 @@ void printComparePii(pii a, pii b)
 }
 
 
+// Class
 
 
 
@@ -57,21 +75,47 @@ int main()
 {
     printf("Let's get started!\n");
     cout << "do it constantly" << "\n";
+    cout << "-----------------------------------\n";
 
-
+    // structure
+    cout << "Structure\n"; 
     Book book1 = {"crime and sin", "dostoyevski", 3};
     cout << "book1 title : " << book1.title << "\n";
+    cout << "book1 price : " << book1.price << "\n";
+    changePrice(&book1, 10);
+    cout << "New book1 price : " << book1.price << "\n";
+    cout << "-----------------------------------\n";
 
 
+    // Union
+    cout << "Union\n";
+    ShareData var;
+    var.c = 0x12345678; // c is integer
+    cout << hex;
+    cout << var.a << endl;
+    cout << var.b << endl;
+    cout << var.c << endl;
+    cout << "-----------------------------------\n";
+
+
+
+    // Enum
+    cout << "Enum\n";
+    cout << "-----------------------------------\n";
+
+    
+    // Pairs
+    cout << "Pairs\n";
     pii pair1 = make_pair(3,3);
     changePii (pair1, 1);
     cout << pair1.first << "\n";
     cout << pair1.second << "\n";
     pii pair2 = make_pair(1,4);
-
     printComparePii(pair1, pair2); 
+    cout << "-----------------------------------\n";
 
-    vector <pii> arr;
-    
+
+
+    // Vectors    
 
 }
