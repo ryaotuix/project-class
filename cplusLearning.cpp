@@ -32,7 +32,13 @@ typedef union ShareData
 
 
 // Enumerated type Enum
-
+enum Grades 
+{
+    MATH = 80, 
+    CS = 90, 
+    MUS = 100, 
+    PROJ = 0
+};
 
 
 
@@ -101,6 +107,9 @@ int main()
 
     // Enum
     cout << "Enum\n";
+    enum Grades obj;
+    obj = MATH;
+    cout << "The grade for math class : " << obj << "\n";
     cout << "-----------------------------------\n";
 
     
