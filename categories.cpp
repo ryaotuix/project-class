@@ -3,70 +3,89 @@
 #include <stdlib.h>
 #include <utility>
 #include <vector>
+#include <string>
 
+
+using namespace std;
 
 
 class Student
 {
     private:
         // INFORMATIONS
-        int student_id;
-        int gpa;
-        string major;
+        string student_id;
+        double gpa;
+        vector <string> majors;
         string name;
         int grade;
 
     public:
         // FUNCTIONS
-        Student(int id, int gpa); // constructor
+        Student(string student_id, double gpa, vector <string> majors, string name, int grade); // constructor
+        Student(const Student& other); // shallow copy constructor
         ~Student(); // destructor
-
         void printStudentInfo();
-
-        
-}
+};
 
 // Constructor
-Student::Student(int id, int gpa)
+Student::Student(string student_id, double gpa, vector <string> majors, string name, int grade)
 {
-    student_id = id;
-    gpa = gpa;
+    this -> student_id = student_id;
+    this -> gpa = gpa;
+    this -> majors = majors;
+    this -> name = name;
+    this -> grade = grade;
 }
+
+// Shallow copy constructor
+Student::Student(const Student& other)
+{
+    this -> student_id = other.student_id;
+    this -> gpa = other.gpa;
+    this -> majors = other.majors;
+    this -> name = other.name;
+    this -> grade = other.grade;
+}
+
 
 // Destructor
 Student::~Student()
 {
-    delete Student;
+    delete this;
 }
 
 void Student::printStudentInfo()
 {
-
+    cout << "Student Name: " << name << "\n";
+    cout << "Student ID: " << student_id << "\n";
+    cout << "GPA: " << gpa << "\n";
+    cout << "Majors:";
+    for (auto const & major : majors)
+    {
+        cout << major << " ";
+    }
+    cout << "\n";
+    cout << "Grade: " << grade << "\n";
 }
 
 
-
-
-
-class Major 
-{
-    public:
-        string major_name;
-        string department;
-
-}
-
-
-
-
-using namespace std;
 
 
 int main()
 {
     printf("Let's get started!\n");
     cout << "do it constantly" << "\n";
+    cout << "-------------------------------------\n";
+    
+    vector<string> majors_hyeonwoo {"Data Science", "Computer Science"};
 
-    Student me;
+    // Explicit constructor
+    Student hyeonwoo = Student ("0032379604", 4.0, majors_hyeonwoo, "Hyeonwoo Park", 2);
+    hyeonwoo.printStudentInfo();
 
+    Student jashan = Student(hyeonwoo);
+    jashan.printStudentInfo();
+
+    return 0;
 }
+
