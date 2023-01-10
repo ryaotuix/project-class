@@ -112,6 +112,31 @@ int main()
     cout << "The grade for math class : " << obj << "\n";
     cout << "-----------------------------------\n";
 
+    enum class Animal { dog, deer, cat, bird, human };
+    enum class Mammal { kangaroo, deer, human };
+    enum Color { red, green, blue };
+    enum Card { red_card, green_card, blue_card };
+
+    Color color = Color::red;
+    Card card = Card::green_card;
+
+    int num = color; // 0
+    int num2 = card; // 1
+    cout << "color : " << num << "\n";
+    cout << "card : " << num2 << "\n";
+
+    Animal a = Animal::deer; 
+    Mammal b = Mammal::deer;
+    if (a== Animal::deer)
+    {
+        cout << "a is deer\n";
+    }
+    else 
+    {
+        cout << "a is not deer\n";
+    }
+    return 1;
+    
     
     // Pairs
     cout << "Pairs\n";
